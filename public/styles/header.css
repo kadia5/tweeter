@@ -15,5 +15,9 @@
   
 
       .nav{
-        position: absolute;
+        position: fixed;
       }
+
+/*TO DO:
+fix background img,to show all when scrolled up
+*/

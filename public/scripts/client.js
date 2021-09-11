@@ -1,12 +1,6 @@
-/*
-* Client-side JS logic goes here
-* jQuery is already loaded
-* Reminder: Use (and do all your DOM work in) jQuery's document ready function
-*/
-
 $ (document).ready (function () {
   const renderTweets = function (tweets) {
-    //tweet becomes the tweets obj from arr
+    //When a tweet is made allows newest tweet to appear at top of page when rendered
     tweets.forEach (tweet => {
       $ ('.tweets').prepend (createTweetElement (tweet));
     });
@@ -20,10 +14,9 @@ $ (document).ready (function () {
       div.appendChild (document.createTextNode (str));
       return div.innerHTML;
     };
-    //a jquery obj
+    //jquery tweet obj holding information from the database
     const $tweet = `
     <article class="tweet">
-
         <header>
           <div class="user">
             <div class="user-image-container"> 
@@ -43,14 +36,13 @@ $ (document).ready (function () {
             <i class="fas fa-solid fa-heart"></i>
           </div>
         </footer>
-
       </article>
     `;
 
     return $tweet;
   };
 
-  //data becomes tweets in rendertweets funct
+  //on submit the data becomes tweets in rendertweets function
   $ ('#tweet-form').on ('submit', function (event) {
     event.preventDefault ();
     const data = $ (this).serialize ();
@@ -66,7 +58,7 @@ $ (document).ready (function () {
       });
     }
     $.post ('/tweets', data)
-      //call the loadTweets function again if the user submitted a valid tweet
+      //calls the loadTweets function again if the user submitted a valid tweet
       .then (() => {
         $ ('.error-msg').slideUp ({
           start: function () {
@@ -80,7 +72,7 @@ $ (document).ready (function () {
         loadTweets ();
       });
   });
-  //jquery ajax get request to tweets that renders rendertweets data
+  //jquery ajax get request to tweets that renders tweet data
   const loadTweets = function () {
     $.ajax ({url: '/tweets', method: 'GET'}).then (function (response) {
       renderTweets (response);
@@ -88,3 +80,8 @@ $ (document).ready (function () {
   };
   loadTweets ();
 });
+
+/*TO DO:
+fix error reappearance condition for words over 140/null
+add screenshots and push
+*/

@@ -13,8 +13,8 @@ html {
 }
 
 /*
-  * Global layout stuff
-  */
+ * Global layout stuff
+ */
 
 body {
   color: #545149;
@@ -34,3 +34,7 @@ body {
     flex-direction: column;
   }
 }
+
+/*TO DO:
+make page responsive
+*/
