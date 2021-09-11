@@ -1,0 +1,32 @@
+nav {
+  display: flex;
+        background-color:#4056A1;
+        color: #FFFFFF;
+        height: 120px;
+        font-family: 'Bungee', cursive;
+        font-family: 'Bungee', cursive;
+        justify-content: space-between;
+        align-items: center;
+        order: 1;
+        position: fixed;
+        width: 100%;
+        top: 0%;
+      } 
+  .logo {
+   font-size: 30px;
+   margin-left: 1.5em;
+ }
+
+ /* .nav, .header, .name {
+  position: absolute;
+} */
+
+ /* .fas fa-angle-double-down {
+  font-size: 30px;
+  flex-direction: flex-start;
+ } */
+
+
+      /* .class, # id, nav = html tag */
+    
+

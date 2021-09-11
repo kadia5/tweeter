@@ -1,6 +1,90 @@
 /*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+* Client-side JS logic goes here
+* jQuery is already loaded
+* Reminder: Use (and do all your DOM work in) jQuery's document ready function
+*/
 
+$ (document).ready (function () {
+  const renderTweets = function (tweets) {
+    //tweet becomes the tweets obj from arr
+    tweets.forEach (tweet => {
+      $ ('.tweets').prepend (createTweetElement (tweet));
+    });
+  };
+
+  //1-use time ago library get current date 2-curent date/time subtracted from original tweet creation date i.e. created_at 3= change d
+  const createTweetElement = function (tweet) {
+    const {content, created_at, user} = tweet;
+    const escape = function (str) {
+      let div = document.createElement ('div');
+      div.appendChild (document.createTextNode (str));
+      return div.innerHTML;
+    };
+    //a jquery obj
+    const $tweet = `
+    <article class="tweet">
+
+        <header>
+          <div class="user">
+            <div class="user-image-container"> 
+              <img src="${user.avatars}" alt="user avatar"/>
+            </div>
+            <span>${user.name}</span>
+          </div>
+          <span class="tag">${user.handle}</span>
+        </header>
+        <span class="tweet-text">${escape (content.text)} </span>
+        <footer>
+          <span class="tweetTime">${timeago.format (created_at)}</span>
+          <div class="symbols">
+            <!-- flags below -->
+            <i class="fas fa-solid fa-flag"></i>
+            <i class="fas fa-solid fa-retweet"></i>
+            <i class="fas fa-solid fa-heart"></i>
+          </div>
+        </footer>
+
+      </article>
+    `;
+
+    return $tweet;
+  };
+
+  //data becomes tweets in rendertweets funct
+  $ ('#tweet-form').on ('submit', function (event) {
+    event.preventDefault ();
+    const data = $ (this).serialize ();
+    const tweetValue = $ (this).find ('textarea').val ();
+    // tweetValue == '' || tweetValue.length > 140 || tweetValue == null
+    if (tweetValue.length === 0 || tweetValue.length > 140) {
+      $ ('.error-msg').slideDown ({
+        start: function () {
+          $ (this).css ({
+            display: 'flex',
+          });
+        }
+      });
+    }
+    $.post ('/tweets', data)
+      //call the loadTweets function again if the user submitted a valid tweet
+      .then (() => {
+        $ ('.error-msg').slideUp ({
+          start: function () {
+            $ (this).css ({
+              display: 'none',
+            });
+          }
+        });
+      })
+      .then (() => {
+        loadTweets ();
+      });
+  });
+  //jquery ajax get request to tweets that renders rendertweets data
+  const loadTweets = function () {
+    $.ajax ({url: '/tweets', method: 'GET'}).then (function (response) {
+      renderTweets (response);
+    });
+  };
+  loadTweets ();
+});
