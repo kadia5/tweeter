@@ -6,8 +6,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 # Screenshots
 
-! ['screenshot description -tweets'](url)
-! ['screenshot description' -tweet compose box](url)
+! ['Screenshot of Tweets'](url)
+! ['Screenshot of Tweet Compose Box](url)
 
 ## Getting Started
 
