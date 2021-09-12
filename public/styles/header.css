@@ -1,23 +1,24 @@
 .mainHeader {
   display: flex;
   flex-direction: column;
-        height: 400px;
-        width: 100%;
-        justify-content: center;
-        order: 2;
-        margin: auto;
-       align-items: center;
-       background-color: #422c00;
-        background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-        color: rgb(51, 48, 48);
-      } 
+  height: 400px;
+  width: 37em;
+  justify-content: center;
+  order: 2;
+  margin-top: 3.1em;
+  align-items: center;
+  background-color: #422c00;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  color: rgb(51, 48, 48);
+}
 
-  
+.nav {
+  position: fixed;
+}
 
-      .nav{
-        position: fixed;
-      }
+.arrow-down {
+  display: flex;
+  color: red;
+  justify-content: center;
+}
 
-/*TO DO:
-fix background img,to show all when scrolled up
-*/

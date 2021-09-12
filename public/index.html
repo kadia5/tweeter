@@ -43,7 +43,7 @@
   <nav>
     <span class="logo">tweeter</span>
     <h4>Write a new tweet
-      <div><i class="fas fa-angle-double-down"></i></div>
+      <div class="arrow-down"><i class="fas fa-angle-double-down"></i></div>
     </h4>
   </nav>
 
@@ -52,20 +52,21 @@
       <img src="/images/profile-hex.png">
     </div>
     <div>
-      <h2 class="name">Your Name</h2>
+      <h2 class="name">Potato</h2>
     </div>
   </header>
 
   <!-- Page-specific (main) content here -->
-  <main class="container"></main>
+  <main class="container">
 </body>
+
+<!-- <body class="tweet-area"></body> -->
 
 <section class="new-tweet">
   <h2>Compose Tweet</h2>
   <form method="POST" action="/tweets/" id="tweet-form">
-
     <div class="invalid-entry">
-      <h4 class="error-msg">Error: Tweet not present or Too long</h4>
+      <h4 class="error-msg">! ლ(ಠ_ಠ ლ) Error: Tweet not present or Too long !</h4>
     </div>
 
     <label for="tweet-text">What are you humming about?</label>
@@ -74,7 +75,9 @@
       <button type="submit">Tweet</button>
       <output name="counter" class="counter" for="tweet-text">140</output>
     </div>
+
   </form>
 </section>
 <section class="tweets"></section>
+</main>
 </html>

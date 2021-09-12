@@ -5,45 +5,34 @@
   justify-content: space-between;
   align-items: stretch;
   margin-left: 1.5em;
-
 }
 
 .new-tweet textarea {
   width: 95%;
+  height: 50px;
   background-color: transparent;
   border: 0px;
   border-bottom: 5px solid rgb(59, 56, 56);
   align-items: flex-start;
-  
 }
 
 .new-tweet div {
   display: flex;
   justify-content: space-between;
   margin-right: 1.5em;
-
 }
 
 .new-tweet button {
-  background-color:#4056A1;
+  background-color: #4056A1;
   color: white;
   font-family: 'Bungee', cursive;
-  
 }
 
 .error-msg {
   display: flex;
   display: none;
-    width: 100%;
-    text-emphasis-color: red;
-    border-color: red;
+  width: 650px;
+  color: rgb(245, 11, 11);
+  border: 2px solid rgb(245, 11, 11);
+  padding: 0.5em;
 }
-
-.invalid-entry {
-  border: royalblue;
-}
-
-
-/*TO DO:
-Style error msg box red with triangles
-*/

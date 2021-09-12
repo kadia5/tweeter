@@ -29,12 +29,32 @@ body {
   background-color: #f4f1ec;
 }
 
-@media screen and (max-width: 850px) {
+@media only screen and (min-width: 960px) {
+  body {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    margin-left: 1em;
+    margin-top: 3em;
+  }
   .container {
+    display: flex;
     flex-direction: column;
+    height: 40em;
+    width: 40em;
+    margin-top: 1.5em;
+  }
+  nav {
+    display: flex;
+    background-color: #4056A1;
   }
 }
 
-/*TO DO:
-make page responsive
-*/
+@media only screen and (max-width: 960px) {
+  nav {
+    background-color: #422c00;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    color: rgb(51, 48, 48);
+  }
+}
+
