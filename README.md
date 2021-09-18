@@ -6,8 +6,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 # Screenshots
 
-! ['Screenshot of Tweet Compose Box](https://github.com/kadia5/tweeter/blob/master/docs/compose-box.png?raw=true)
-! ['Screenshot of Tweets'](https://github.com/kadia5/tweeter/blob/master/docs/tweet.png?raw=true )
+! ['Screenshot of Tweet Compose Box](https://raw.githubusercontent.com/kadia5/tweeter/master/docs/compose-box.png)
+! ['Screenshot of Tweets'](https://raw.githubusercontent.com/kadia5/tweeter/master/docs/tweet.png)
 
 ## Getting Started
 
