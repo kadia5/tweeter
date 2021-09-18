@@ -5,7 +5,9 @@ $(document).ready(function() {
     const inputLength = 140 - counter;
     $(".counter").text(inputLength)
     if (inputLength < 0) {
-      $(".counter").css({"color": "red"})
-    }
+      $(".counter").css({"color": "red"});
+    } else {
+          $(".counter").css({"color": "black"});
+        }
   })
 });

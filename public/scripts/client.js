@@ -1,10 +1,14 @@
 $(document).ready(function () {
   const renderTweets = function (tweets) {
     //When a tweet is rendered allows newest tweet to appear at top of page
+    $('.tweets').empty();
+    console.log('before .tweets check', $('.tweets')[0].outerText)
     tweets.forEach(tweet => {
       $('.tweets').prepend(createTweetElement(tweet));
     });
+    console.log('after .tweets check', $('.tweets')[0].outerText)
   };
+
 
   const createTweetElement = function (tweet) {
     const { content, created_at, user } = tweet;
@@ -43,6 +47,7 @@ $(document).ready(function () {
 
   //on submit the data becomes tweets in rendertweets function
   $('#tweet-form').on('submit', function (event) {
+   
     event.preventDefault();
     const data = $(this).serialize();
     const tweetValue = $(this).find('textarea').val();
@@ -57,25 +62,29 @@ $(document).ready(function () {
       return;
     }
     $.post('/tweets', data)
-      //calls the loadTweets function again if the user submitted a valid tweet
-      .then(() => {
-        $('.error-msg').slideUp({
-          start: function () {
-            $(this).css({
-              display: 'none',
-            });
-          }
-        });
-      })
-      .then(() => {
-        loadTweets();
+    //calls the loadTweets function again if the user submitted a valid tweet
+    .then(() => {
+      $('.error-msg').slideUp({
+        start: function () {
+          $(this).css({
+            display: 'none',
+          });
+        }
       });
-
+    })
+    .then(() => {
+      console.log('counter check',$(".counter"))
+      $('#tweet-form')[0].reset()
+      $(".counter").text(140)
+      loadTweets();
+    });
+    
   });
   //jquery ajax get request to tweets which renders tweet data
   const loadTweets = function () {
     $.ajax({ url: '/tweets', method: 'GET' }).then(function (response) {
       renderTweets(response);
+      console.log('response test', response)
     });
   };
   loadTweets();
