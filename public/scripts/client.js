@@ -2,11 +2,9 @@ $(document).ready(function () {
   const renderTweets = function (tweets) {
     //When a tweet is rendered allows newest tweet to appear at top of page
     $('.tweets').empty();
-    console.log('before .tweets check', $('.tweets')[0].outerText)
     tweets.forEach(tweet => {
       $('.tweets').prepend(createTweetElement(tweet));
     });
-    console.log('after .tweets check', $('.tweets')[0].outerText)
   };
 
 
@@ -84,7 +82,6 @@ $(document).ready(function () {
   const loadTweets = function () {
     $.ajax({ url: '/tweets', method: 'GET' }).then(function (response) {
       renderTweets(response);
-      console.log('response test', response)
     });
   };
   loadTweets();
